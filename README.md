@@ -1,0 +1,2 @@
+# LaTeXtemplate
+LaTeXのテンプレート
