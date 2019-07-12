@@ -1,0 +1,107 @@
+% \documentclass[dvipdfmx, 11pt]{beamer}
+\documentclass[aspectratio=169, dvipdfmx, 11pt]{beamer} % aspectratio=43, 149, 169
+\usepackage{here, amsmath, latexsym, amssymb, bm, ascmac, mathtools, multicol, tcolorbox, subfig}
+
+%デザインの選択(省略可)
+\usetheme{Luebeck}
+%カラーテーマの選択(省略可)
+\usecolortheme{orchid}
+%フォントテーマの選択(省略可)
+\usefonttheme{professionalfonts}
+%フレーム内のテーマの選択(省略可)
+\useinnertheme{circles}
+%フレーム外側のテーマの選択(省略可)
+\useoutertheme{infolines}
+%しおりの文字化け解消
+\usepackage{atbegshi}
+\ifnum 42146=\euc"A4A2
+\AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}}
+\else
+\AtBeginShipoutFirst{\special{pdf:tounicode 90ms-RKSJ-UCS2}}
+\fi
+%ナビゲーションバー非表示
+\setbeamertemplate{navigation symbols}{}
+%既定をゴシック体に
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+%タイトル色
+\setbeamercolor{title}{fg=structure, bg=}
+%フレームタイトル色
+\setbeamercolor{frametitle}{fg=structure, bg=}
+%スライド番号のみ表示
+%\setbeamertemplate{footline}[frame number]
+%itemize
+\setbeamertemplate{itemize item}{\small\raise0.5pt\hbox{$\bullet$}}
+\setbeamertemplate{itemize subitem}{\tiny\raise1.5pt\hbox{$\blacktriangleright$}}
+\setbeamertemplate{itemize subsubitem}{\tiny\raise1.5pt\hbox{$\bigstar$}}
+% color
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\green}[1]{\textcolor{green!40!black}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue!80!black}{#1}}
+
+\title[Short title]{タイトル}
+\subtitle{副題}
+\author[著者略称]{氏名}
+\institute[所属略称]{所属}
+\date{\today}
+% \logo{\includegraphics[height=0.1\textheight]{logo.pdf}\\ \vspace{0.87\textheight}}
+
+\begin{document}
+\maketitle
+
+\begin{frame}{目次}
+	\tableofcontents
+\end{frame}
+
+\section{Section 1}
+\begin{frame}{目次}
+	\tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}{ブロック環境}
+	\begin{block}{block}
+	block
+	\end{block}
+	\begin{alertblock}{alertblock}
+	alertblock
+	\end{alertblock}
+	\begin{exampleblock}{exampleblock}
+	exampleblock
+	\end{exampleblock}
+	\begin{tcolorbox}[colframe=green,
+	colback=green!10!white,
+	colbacktitle=green!40!white,
+	coltitle=black, fonttitle=\bfseries,
+	title=My box]
+		box contents
+	\end{tcolorbox}
+\end{frame}
+
+\section{Section 2}
+\begin{frame}{目次}
+	\tableofcontents[currentsection]
+\end{frame}
+
+\begin{frame}{箇条書き}
+	\begin{itemize}
+	\item アイテム1
+	\item \alert{アイテム2}
+		\begin{itemize}
+		\item アイテム1
+		\item \alert{アイテム2}
+			\begin{itemize}
+			\item アイテム1
+			\item \alert{アイテム2}
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+	\[
+	\bm{x}^\top\bm{y}
+	\]
+	\begin{enumerate}
+	\item abcde
+	\item \structure{ABCDE}
+	\item 
+	\end{enumerate}
+\end{frame}
+
+\end{document}

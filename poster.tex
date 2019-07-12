@@ -1,0 +1,123 @@
+\documentclass[dvipdfmx]{beamer}
+\usepackage[orientation=landscape,size=a0,scale=1.5]{beamerposter}%縦 : orientation=portrait, 横 : orientation=landscape
+\usepackage{here, amsmath, latexsym, amssymb, bm, ascmac, mathtools, multicol, tcolorbox}
+
+%カラーテーマの選択(省略可)
+\usecolortheme{orchid}
+%フォントテーマの選択(省略可)
+\usefonttheme{professionalfonts}
+%フレーム内のテーマの選択(省略可)
+\useinnertheme{circles}
+%ナビゲーションバー非表示
+\setbeamertemplate{navigation symbols}{}
+%既定をゴシック体に
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+%itemize
+\setbeamertemplate{itemize item}{\small\raise0.5pt\hbox{$\bullet$}}
+\setbeamertemplate{itemize subitem}{\tiny\raise1.5pt\hbox{$\blacktriangleright$}}
+\setbeamertemplate{itemize subsubitem}{\tiny\raise1.5pt\hbox{$\bigstar$}}
+% color
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\green}[1]{\textcolor{green!40!black}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue!80!black}{#1}}
+%head
+\setbeamertemplate{headline}{
+	\begin{center}
+		\structure{
+			\vskip3ex
+			\rule{0.98\linewidth}{4mm}
+			\vskip3ex
+			\usebeamercolor{title in headline}{\textbf{\LARGE{\inserttitle}}\\[2.5ex]}
+			\usebeamercolor{author in headline}{\large{\insertauthor}\\[1.2ex]}
+			\usebeamercolor{institute in headline}{\large{\insertinstitute}}
+			\vskip3ex
+			\rule{0.98\linewidth}{4mm}
+		}
+	\end{center}
+}
+%foot
+\setbeamertemplate{footline}{
+	\begin{center}
+		\structure{
+			\rule{0.98\linewidth}{2mm}
+			\vskip4ex
+			\begin{columns}[T]
+				\begin{column}{0.65\paperwidth}
+				\end{column}
+				\begin{column}{0.35\paperwidth}
+					\usebeamercolor{conference in headline}{\large{\foot}}
+				\end{column}
+			\end{columns}
+			\vskip3ex
+		}
+	\end{center}
+}
+\newtcolorbox{mybox}[1]
+{
+	title=#1, 
+	toptitle=2mm, bottomtitle=2mm, 
+	colframe=structure,boxrule=5pt,
+	coltitle=white, colbacktitle=structure,
+	colback=white, fonttitle=\bfseries\Large,
+	top=5mm, bottom=5mm, left=5mm, right=5mm, %内部余白調整
+	enlarge top by=1mm, enlarge bottom by=1mm, %外部余白調整
+}
+
+\title{ポスターのサンプル}
+\author{著者名}
+\institute{所属機関名}
+\newcommand{\foot}{最下部に書きたいこと}
+
+\begin{document}
+
+\begin{frame}
+\begin{columns}[t]
+	\begin{column}{0.48\linewidth}
+		\begin{mybox}{はじめに}
+			あいうえお
+		\end{mybox}
+		\begin{mybox}{次に}
+			\[
+			\bm{x}^\top\bm{y}=1
+			\]
+		\end{mybox}
+		\begin{mybox}{Test}
+			Test
+			\begin{itemize}
+				\item a
+				\begin{itemize}
+					\item b
+					\begin{itemize}
+						\item c
+					\end{itemize}
+				\end{itemize}
+			\end{itemize}
+		\end{mybox}
+	\end{column}
+	\begin{column}{0.48\linewidth}
+		\begin{mybox}{囲み系}
+			\begin{block}{a}
+				a
+			\end{block}
+			\begin{alertblock}{a}
+				a
+			\end{alertblock}
+			\begin{exampleblock}{a}
+				a
+			\end{exampleblock}
+			\begin{itembox}{a}
+			a
+			\end{itembox}
+			\begin{tcolorbox}[colframe=green,
+			colback=green!10!white,
+			colbacktitle=green!40!white,
+			coltitle=black, fonttitle=\bfseries,
+			title=a]
+			a
+			\end{tcolorbox}
+		\end{mybox}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\end{document}
