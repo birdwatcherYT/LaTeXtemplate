@@ -1,6 +1,8 @@
 FILE = $(wildcard *.tex)
 PDF  = $(FILE:.tex=.pdf)
 DVI  = $(FILE:.tex=.dvi)
+AUX  = $(FILE:.tex=.aux)
+LOG  = $(FILE:.tex=.log)
 
 .PHONY:run
 run:$(PDF) $(DVI)
@@ -9,7 +11,7 @@ run:$(PDF) $(DVI)
 	dvipdfmx $<
 
 %.dvi: %.tex
-	platex $<
+	platex -synctex=1 $<
 #	pbibtex $*
 
 #クリーンして実行
@@ -19,4 +21,4 @@ all: clean run
 #クリーン
 .PHONY:clean
 clean: 
-	rm -f $(PDF) $(DVI)
+	rm -f $(PDF) $(DVI) $(AUX) $(LOG)
